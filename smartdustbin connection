@@ -1,0 +1,33 @@
+Got it 👍
+**ONLY WIRING (no code, no explanation).**
+
+---
+
+## 🔌 SMART DUSTBIN WIRING
+
+### **Ultrasonic Sensor (HC-SR04 → Arduino UNO)**
+
+* **VCC → 5V**
+* **GND → GND**
+* **TRIG → D9**
+* **ECHO → D10**
+
+---
+
+### **Servo Motor → Arduino UNO**
+
+* **Red (VCC) → 5V**
+* **Brown / Black (GND) → GND**
+* **Yellow / Orange (Signal) → D6**
+
+---
+
+⚠️ **If using external power for servo:**
+
+* External **+5V → Servo Red**
+* External **GND → Servo Brown**
+* **Arduino GND ↔ External GND (common ground)**
+
+---
+
+That’s all.

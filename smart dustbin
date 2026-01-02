@@ -1,0 +1,35 @@
+#include <Servo.h>
+
+Servo lid;
+
+const int trigPin = 9;
+const int echoPin = 10;
+const int servoPin = 6;
+
+long duration;
+int distance;
+
+void setup() {
+  lid.attach(servoPin);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  lid.write(0);   // lid closed
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+
+  if (distance > 0 && distance < 20) {
+    lid.write(90);   // open lid
+    delay(2000);     // stay open
+  } else {
+    lid.write(0);    // close lid
+  }
+}
